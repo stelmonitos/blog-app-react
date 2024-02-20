@@ -1,10 +1,15 @@
-
+import Posts from "../features/Posts";
 
 const Home = () => {
   return (
+    <>
+    <header>
+      <h1>All posts</h1>
+    </header>
     <div>
-      <h1>Home</h1>
+      <Posts />
     </div>
+    </>
   );
 };
 
