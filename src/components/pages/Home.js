@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <>
     <header>
-      <h1>All posts</h1>
+      <h2>All posts</h2>
     </header>
     <div>
       <Posts />
