@@ -6,7 +6,7 @@ const initialState = {
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
             publishedDate: '02-02-2024',
-            author: 'John Doe'
+            author: 'Patryk "Buła" Tokarz'
         },
         {
             id: '2',
@@ -14,7 +14,7 @@ const initialState = {
             shortDescription: 'Short description of the article...',
             content: 'Main content of the article',
             publishedDate: '02-02-2023',
-            author: 'John Doe'
+            author: 'Jakub "stelma" Stelmasiak'
         },
         {
             id: '3',
