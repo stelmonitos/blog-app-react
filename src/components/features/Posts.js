@@ -15,7 +15,7 @@ const Posts = () => {
                     <span><strong>Author: </strong></span>{post.author}<br />
                     <span><strong>Published date: </strong></span>{post.publishedDate}<br />
                     <p>{post.shortDescription}</p>
-                    <Link to={`/post/${post.id}`}>
+                    <Link to={`/post/${post.id}`} key={post.id}>
                         <Button>Read More</Button>
                     </Link>
                 </aritcle>
