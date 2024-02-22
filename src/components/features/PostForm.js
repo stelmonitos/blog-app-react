@@ -1,25 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { Button, Form } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { addPost } from "../../redux/postsRedux";
-import { useState } from "react";
+import { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-const PostForm = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+const PostForm = ({ action, actionText, ...props }) => {
+    const [title, setTitle] = useState(props.title || '');
+    const [author, setAuthor] = useState(props.author || '');
+    const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
+    const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
+    const [content, setContent] = useState(props.content || '');
 
-    const [title, setTitle] = useState("");
-    const [author, setAuthor] = useState("");
-    const [publishedDate, setPublishedDate] = useState("");
-    const [shortDescription, setShortDescription] = useState("");
-    const [content, setContent] = useState("");
-
-    const handleAddPost = () => {
-        dispatch(addPost({title, author, publishedDate, shortDescription, content}));
-        
-        navigate("/");
-    };
-    return (
+    const handleSubmit = e => {
+        e.preventDefault();
+        action({ title, author, publishedDate, shortDescription, content });
+      };
+      return (
+        <>
         <form >
             Title:<br />
             <Form.Control type="string" className="my-2" value={title} onChange={e => setTitle(e.target.value)}  placeholder="Enter title" /><br />
@@ -31,9 +26,9 @@ const PostForm = () => {
             <Form.Control className="my-2"  as="textarea" value={shortDescription} onChange={e => setShortDescription(e.target.value)} rows={3} placeholder="Enter short description" /><br />
             Main content:<br />
             <Form.Control className="my-2" as="textarea" value={content} onChange={e => setContent(e.target.value)} rows={5} placeholder="Enter main content" /><br />
-            <Button className="justify-content-end" onClick={handleAddPost}>Add post</Button>
+            <Button className="justify-content-end" onClick={handleSubmit}>Add post</Button>
         </form>
-    );
-};
-
-export default PostForm;
+        </>
+      );
+};    
+    export default PostForm;
