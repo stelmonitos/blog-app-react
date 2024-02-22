@@ -1,10 +1,13 @@
+import  PostForm  from "../features/PostForm";
+import { Row, Col } from "react-bootstrap";
 
-
-const AddPost = () => {
+const AddPost = props => {
   return (
-    <div>
-      <h1>Add Post</h1>
-    </div>
+      <Row>
+        <Col md={{ span: 6, offset: 3 }}><h1>Add post</h1><br /></Col>
+        <Col md={{ span: 6, offset: 3 }}><PostForm postId={props.id} /></Col>
+      </Row>
+    
   );
 }
 

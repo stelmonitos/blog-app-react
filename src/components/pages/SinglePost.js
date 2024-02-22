@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import { getPostById } from "../../redux/postsRedux";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { removePost } from "../../redux/postsRedux";
@@ -12,8 +12,8 @@ const SinglePost = () => {
   const { id } = useParams();
   const posts = useSelector(posts => getPostById(posts, id));
   const dispatch = useDispatch();
-  
   const [show, setShow] = useState(false);
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleRemove = () => {
@@ -30,7 +30,9 @@ const SinglePost = () => {
       <div className="row">
         <h1 className="col-md-9">{posts.title}</h1>
         <div className="col-md-3">
+          <Link to={`/post/edit/${posts.id}`} key={posts.id}>
           <Button className="me-2" variant="outline-info">Edit</Button>
+          </Link>
           <Button variant="outline-danger" onClick={handleShow}>Delete</Button>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
