@@ -15,7 +15,7 @@ const PostForm = () => {
     const [content, setContent] = useState("");
 
     const handleAddPost = () => {
-        dispatch(addPost({title, author, publishedDate, shortDescription}));
+        dispatch(addPost({title, author, publishedDate, shortDescription, content}));
         
         navigate("/");
     };

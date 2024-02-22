@@ -8,8 +8,8 @@ const NavBar = () => {
                 <Nav>
                     <Nav.Link as={NavLink} to="/">Blog.app</Nav.Link>
                 </Nav>
-                <Nav>
-                    <Nav.Link  as={NavLink} to="/">Home</Nav.Link>
+                <Nav className='flex-row'>
+                    <Nav.Link className='mx-2' as={NavLink} to="/">Home</Nav.Link>
                     <Nav.Link  as={NavLink} to="/about">About</Nav.Link>
                 </Nav>
             </Container>
