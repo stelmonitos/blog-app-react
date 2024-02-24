@@ -26,14 +26,16 @@ const SinglePost = () => {
     return <Navigate to="/" />;
   }
   else return (
-    <div className="container col-6">
+    <div className="container col-8">
       <div className="row">
-        <h1 className="col-md-9">{posts.title}</h1>
-        <div className="col-md-3">
-          <Link to={`/post/edit/${posts.id}`} key={posts.id}>
-          <Button className="me-2" variant="outline-info">Edit</Button>
-          </Link>
-          <Button variant="outline-danger" onClick={handleShow}>Delete</Button>
+        <h1 className="col-sm-9">{posts.title}</h1>
+        <div className="col-sm-3">
+          <div className="col d-flex">
+            <Link to={`/post/edit/${posts.id}`} key={posts.id}>
+            <Button className="me-2 col" variant="outline-info">Edit</Button>
+            </Link>
+            <Button variant="outline-danger" onClick={handleShow}>Delete</Button>
+          </div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Are you sure?</Modal.Title>
