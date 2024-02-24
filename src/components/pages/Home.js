@@ -8,10 +8,10 @@ const Home = () => {
     <>
     <Container>
     <header className="row align-items-center">
-      <h2 className="col-10">All posts</h2>
-      <div className="col-2 d-flex justify-content-end">
+      <h2 className="col px-0">All posts</h2>
+      <div className="col d-flex justify-content-end px-0">
       <Link to={`/post/add`}>
-      <Button  variant="outline-primary">Add Post</Button>
+      <Button className=""  variant="outline-primary">Add Post</Button>
       </Link>
       </div>
     </header>
