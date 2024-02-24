@@ -7,9 +7,9 @@ import { Button } from "react-bootstrap";
 const Posts = () => {
     const posts = useSelector(getAllPosts);
     return (
-        <div className="row d-flex justify-content-flex-start">
+        <div className="row">
             {posts.map(post => (
-                <Card style={{ width: '30%'}} className="rounded mx-3 mt-3">
+                <Card className="rounded mx-2 mt-3 col-sm-12 col-md p-0">
                 <aritcle className="m-3" to={`/post/${post.id}`} key={post.id}>
                     <h5>{post.title}</h5>
                     <span><strong>Author: </strong></span>{post.author}<br />
