@@ -11,7 +11,7 @@ const Home = () => {
       <h2 className="col px-0">All posts</h2>
       <div className="col d-flex justify-content-end px-0">
       <Link to={`/post/add`}>
-      <Button className=""  variant="outline-primary">Add Post</Button>
+      <Button variant="outline-primary">Add Post</Button>
       </Link>
       </div>
     </header>
