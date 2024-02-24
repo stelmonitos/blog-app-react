@@ -11,7 +11,7 @@ const PostForm = ({ action, actionText, ...props }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        action({ title, author, publishedDate, shortDescription, content });
+        action({ title, author, publishedDate, shortDescription, content, actionText });
       };
       return (
         <>
@@ -26,7 +26,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             <Form.Control className="my-2"  as="textarea" value={shortDescription} onChange={e => setShortDescription(e.target.value)} rows={3} placeholder="Enter short description" /><br />
             Main content:<br />
             <Form.Control className="my-2" as="textarea" value={content} onChange={e => setContent(e.target.value)} rows={5} placeholder="Enter main content" /><br />
-            <Button className="justify-content-end" onClick={handleSubmit}>Add post</Button>
+            <Button className="justify-content-end" onClick={handleSubmit}>{actionText}</Button>
         </form>
         </>
       );
