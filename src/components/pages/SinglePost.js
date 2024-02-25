@@ -7,6 +7,7 @@ import { useState } from "react";
 import { removePost } from "../../redux/postsRedux";
 import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import dateToStr from "../../utils/dateToStr";
 
 const SinglePost = () => {
   const { id } = useParams();
@@ -14,6 +15,7 @@ const SinglePost = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
+  const date = dateToStr(posts.publishedDate);
 
   
   const handleClose = () => setShow(false);
@@ -58,7 +60,7 @@ const SinglePost = () => {
       </div>
       <div>
         <p className="mb-0 mt-4"><strong>Author: </strong>{posts.author}</p>
-        <strong>Published date: </strong>{posts.date}<br />
+        <strong>Published date: </strong>{dateToStr(date)}<br />
         <p className="mt-4" dangerouslySetInnerHTML={{ __html: posts.content}} />
       </div>
     </div>

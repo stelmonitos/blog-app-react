@@ -3,14 +3,16 @@ import { getAllPosts } from "../../redux/postsRedux";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import style from "./Posts.module.scss";
+import dateToStr from "../../utils/dateToStr";
+
 const Posts = () => {
     const posts = useSelector(getAllPosts);
-
+    
+    
     return (
-        <div className="row d-flex flex-wrap">
+        <div className="row">
             {posts.map(post => (
-                <Card className={`rounded mt-3 col-sm-12 col-md p-0 ${style.around}`}>
+                <Card className="rounded mx-2 mt-3 col-sm-12 col-md p-0">
                 <aritcle className="m-3" to={`/post/${post.id}`} key={post.id}>
                     <h5>{post.title}</h5>
                     <span><strong>Author: </strong></span>{post.author}<br />
