@@ -13,6 +13,8 @@ const SinglePost = () => {
   const posts = useSelector(posts => getPostById(posts, id));
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+
+
   
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -56,8 +58,8 @@ const SinglePost = () => {
       </div>
       <div>
         <p className="mb-0 mt-4"><strong>Author: </strong>{posts.author}</p>
-        <strong>Published date: </strong>{posts.publishedDate}<br />
-        <p className="mt-4">{posts.content}</p>
+        <strong>Published date: </strong>{posts.date}<br />
+        <p className="mt-4" dangerouslySetInnerHTML={{ __html: posts.content}} />
       </div>
     </div>
     
