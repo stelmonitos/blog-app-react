@@ -61,6 +61,7 @@ const SinglePost = () => {
       <div>
         <p className="mb-0 mt-4"><strong>Author: </strong>{posts.author}</p>
         <strong>Published date: </strong>{dateToStr(date)}<br />
+        <strong>Category: </strong>{posts.category}<br />
         <p className="mt-4" dangerouslySetInnerHTML={{ __html: posts.content}} />
       </div>
     </div>
