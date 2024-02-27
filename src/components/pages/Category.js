@@ -8,16 +8,18 @@ import dateToStr from "../../utils/dateToStr";
 
 
 const Category = () => {
+
+
     const category = useParams();
     const posts = useSelector(state => getPostByCategory(state, category.name));
     console.log(posts);
-    if (!posts) {
+    if (posts.length === 0) {
         return (
             <div>
                 <p>No posts found in this category</p>
             </div>
         );
-    }
+    } else {
 
     return (
         <div>
@@ -38,11 +40,11 @@ const Category = () => {
                             </aritcle>
                         </Card>
                     ))}
-
                 </div>
             </div>
         </div>
     );
+}
 }
 
 export default Category;
