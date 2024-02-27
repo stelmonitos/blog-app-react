@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import dateToStr from '../../utils/dateToStr';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { getAllCategories } from '../../redux/categoriesRedux';
 
@@ -16,27 +16,29 @@ const PostForm = ({ action, actionText, ...props }) => {
   const [publishedDate, setPublishedDate] = useState(props.publishedDate || new Date());
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
+  const [contentError, setContentError] = useState(false);
+  const [dateError, setDateError] = useState(false);
   const [category, setCategory] = useState(props.category || '');
-  const [contentError, setContentError] = useState(true);
-  const [dateError, setDateError] = useState(true);
 
   const categories = useSelector(getAllCategories);
-  // const category = categories.map(category => category.name)
-  console.log(category)
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
   const handleSubmit = () => {
-    setContentError(!content)
-    setDateError(!publishedDate)
-    
+    setContentError(!content);
+    setDateError(!publishedDate);
     if (content && publishedDate) {
       action({ title, author, publishedDate, shortDescription, content, category });
     }
   };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
   return (
     <>
-      <form >
+      <form onSubmit={validate(handleSubmit)}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           Title:<br />
           <Form.Control
@@ -71,11 +73,11 @@ const PostForm = ({ action, actionText, ...props }) => {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           Category:<br />
-          <Form.Select onChange={setCategory} className='my-2' aria-label="Default select example">
-            <option>Select category...</option>
-            {categories.map(category => (
-            <option>{category.name}</option>
-            ))}
+          <Form.Select placeholder='select' className='my-2' aria-label="Default select example" value={category} onChange={handleCategoryChange}>
+            <option value=''>Select category...</option>
+                {categories.map(category => (
+                <option key={category.id} value={category.name}>{category.name}</option>
+              ))}
           </Form.Select>
         </Form.Group>
 
@@ -99,7 +101,7 @@ const PostForm = ({ action, actionText, ...props }) => {
           placeholder="Enter main content" />
           {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
         </Form.Group><br />
-        <Button className="justify-content-end" onClick={validate(handleSubmit)}>{actionText}</Button>
+        <Button className="justify-content-end" type='submit'>{actionText}</Button>
       </form>
     </>
   );

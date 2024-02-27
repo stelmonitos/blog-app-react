@@ -1,6 +1,6 @@
 
 export const getAllCategories = ({ categories }) => categories;
-
+export const getCategoriesByPostId = ({ categories }, postId) => categories.filter(category => category.postId === postId);
 
 const createActionName = name => `app/categories/${name}`;
 
