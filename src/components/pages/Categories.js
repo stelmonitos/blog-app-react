@@ -1,24 +1,23 @@
 import { useSelector } from "react-redux";
 import { getAllCategories } from "../../redux/categoriesRedux";
 import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
-import { getPostByCategory } from "../../redux/postsRedux";
+import { ListGroup } from "react-bootstrap";
 
 const Categories = () => {
     const categories = useSelector(getAllCategories);
     
     return (
-        <section>
-          <Container>
+        <section className="col-8 container">
             <h1>All categories</h1>
-            <ul>
+            
             {categories.map(category => (
                 <Link key={category.id} to={`/category/${category.name}`}>
-                <li>{category.name}</li>
+                    <ListGroup>
+                    <ListGroup.Item className="text-primary">{category.name}</ListGroup.Item>
+                    </ListGroup>
                 </Link>
             ))}
-        </ul>   
-        </Container>
+          
         </section>
     )
 }
