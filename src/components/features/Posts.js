@@ -5,24 +5,24 @@ import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import dateToStr from "../../utils/dateToStr";
-
+import style from "./Posts.module.scss";
 const Posts = () => {
     const posts = useSelector(getAllPosts);
 
     return (
         <div className="row">
             {posts.map(post => (
-                <Card className="rounded mx-2 mt-3 col-sm-12 col-md p-0">
-                <aritcle className="m-3" to={`/post/${post.id}`} key={post.id}>
-                    <h5>{post.title}</h5>
-                    <span><strong>Author: </strong></span>{post.author}<br />
-                    <span><strong>Published date: </strong></span>{dateToStr(post.publishedDate)}<br />
-                    <span><strong>Category: </strong></span>{post.category}<br />
-                    <p className="mt-3">{post.shortDescription}</p>
-                    <Link to={`/post/${post.id}`} key={post.id}>
-                        <Button>Read More</Button>
-                    </Link>
-                </aritcle>
+                <Card className={`rounded mt-3 col-sm-12 col-md p-0 ${style.card}`}>
+                    <aritcle className="m-3" to={`/post/${post.id}`} key={post.id}>
+                        <h5>{post.title}</h5>
+                        <span><strong>Author: </strong></span>{post.author}<br />
+                        <span><strong>Published date: </strong></span>{dateToStr(post.publishedDate)}<br />
+                        <span><strong>Category: </strong></span>{post.category}<br />
+                        <p className="mt-3">{post.shortDescription}</p>
+                        <Link to={`/post/${post.id}`} key={post.id}>
+                            <Button>Read More</Button>
+                        </Link>
+                    </aritcle>
                 </Card>
             ))}
        
