@@ -1,18 +1,17 @@
 import { useSelector } from "react-redux";
 import { getAllPosts} from "../../redux/postsRedux";
-import { getAllCategories } from "../../redux/categoriesRedux";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import dateToStr from "../../utils/dateToStr";
-import style from "./Posts.module.scss";
 const Posts = () => {
     const posts = useSelector(getAllPosts);
 
     return (
         <div className="row">
             {posts.map(post => (
-                <Card className={`rounded mt-3 col-sm-12 col-md p-0 ${style.card}`}>
+                <div className="col-sm-12 col-md">
+                <Card className={"rounded mt-3"}>
                     <aritcle className="m-3" to={`/post/${post.id}`} key={post.id}>
                         <h5>{post.title}</h5>
                         <span><strong>Author: </strong></span>{post.author}<br />
@@ -24,6 +23,7 @@ const Posts = () => {
                         </Link>
                     </aritcle>
                 </Card>
+                </div>
             ))}
        
         </div>

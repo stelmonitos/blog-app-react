@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import Posts from "../features/Posts";
 import Button from "react-bootstrap/Button";
-import { Col, Container } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 const Home = () => {
   return (
     <>
-    <Container>
     <header className="row align-items-center">
       <Col className="d-flex justify-content-between">
       <h2 className="px-0">All posts</h2>
@@ -20,7 +19,6 @@ const Home = () => {
       <div>
         <Posts />
       </div>
-    </Container>
     </>
   );
 };

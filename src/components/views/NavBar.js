@@ -6,7 +6,7 @@ const NavBar = () => {
         <Navbar bg='primary' variant="dark" expand='lg' className='mt-4 mb-4 rounded'>
             <Container>
                 <Nav>
-                    <Nav.Link as={NavLink} to="/">Blog.app</Nav.Link>
+                    <Navbar.Brand as={NavLink} to="/">Blog.app</Navbar.Brand>
                 </Nav>
                 <Nav className='flex-row'>
                     <Nav.Link  as={NavLink} to="/">Home</Nav.Link>
