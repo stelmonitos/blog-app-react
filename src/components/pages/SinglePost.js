@@ -15,7 +15,7 @@ const SinglePost = () => {
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
-  const date = dateToStr(posts.publishedDate);
+  const date = dateToStr(posts);
 
   
   const handleClose = () => setShow(false);

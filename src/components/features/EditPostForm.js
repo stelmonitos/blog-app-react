@@ -1,13 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { editPost } from "../../redux/postsRedux";
-import PostForm from "./PostForm";
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getPostById } from '../../redux/postsRedux';
-import { Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { editPost, getPostById } from "../../redux/postsRedux";
 import dateToStr from "../../utils/dateToStr";
-import { getCategoriesByPostId } from "../../redux/categoriesRedux";
+import PostForm from "./PostForm";
 
 const EditPostForm = () => {
 const { id } = useParams();

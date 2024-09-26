@@ -48,6 +48,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             type="text" placeholder="Enter title" className="my-2"
           />
           {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+          
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
