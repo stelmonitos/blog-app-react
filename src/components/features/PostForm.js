@@ -6,7 +6,7 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import dateToStr from '../../utils/dateToStr';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { getAllCategories } from '../../redux/categoriesRedux';
 
